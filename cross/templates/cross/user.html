@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user data for {{username}}</title>
+</head>
+<body>
+    <a href="/cross">Home</a><br/>
+    <!-- {% if userdata %} -->
+    User: {{username}} <br>
+    Puzzles Started: {{userdata.crosses_started}} <br>
+    Puzzles Completed: {{userdata.crosses_completed}} <br>
+    Completion Rate: {{completionrate}}
+    <!-- {% else %}
+        User {{username}} doesn't exist!
+    {% endif %} -->
+</body>
+</html>

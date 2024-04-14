@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://www.w3schools.com/django/django_add_bootstrap5.php -->
+    <!-- {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %} -->
+    <style>
+        .down{
+            display:inline-block;
+            width:20px;
+            padding:0px;
+            margin:0px;
+        }
+        span:has(input){
+            display:inline-block;
+            width:20px;
+            padding:0px;
+            margin:0px;
+        }
+        span input{
+            display:inline-block;
+            width:20px;
+            padding:0px;
+            margin:0px;
+            text-align:center;
+        }
+        .awawa{
+            background-color:lightpink;
+        }
+        .empty{
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body>
+    This is the main page
+    {% if user %} 
+        <a href="logout">Logout</a> <br/>
+        User: {{user.username}} <br />
+        Puzzles Started: {{data.crosses_started}}<br/>
+        Puzzles Completed: {{data.crosses_completed}}<br/>
+    {% else %}
+        <a href="login">Login</a>
+        <a href="register">Register</a> <br />
+    {% endif %}
+    <br />
+    puzzle: <br>
+    <div>
+        <input class="down" value="0" disabled>
+        <input class="down" value="1" disabled>
+        <input class="down" value="2" disabled>
+        <input class="down" value="3" disabled>
+        <input class="down" value="4" disabled>
+        <input class="down" value="5" disabled>
+        <input class="down" value="6" disabled>
+        <input class="down" value="7" disabled>
+        <input class="down" value="8" disabled>
+        <input class="down" value="9" disabled>
+        <input class="down" value="10" disabled>
+        <input class="down" value="11" disabled>
+        <input class="down" value="12" disabled>
+    </div>
+    
+    <!-- https://stackoverflow.com/questions/42530325/display-django-form-fields-on-the-same-line -->
+    <form action="{% url 'cross:solve' %}" method="post">
+        {% csrf_token %}
+        
+        <input class="down" value="1" disabled>
+        {% for field in puzzle %}
+            {% if forloop.counter0|divisibleby:12 and forloop.counter0 != 0%}
+                <br />
+                <input class="down" value="{% widthratio forloop.counter0|add:12 12 1 %}" disabled>
+            {% endif %}
+            <span style="display:inline;">
+                {{field}}
+            </span>
+        {% endfor %}
+        <br />
+        <br />
+
+        <b>Down</b> <br>
+        {% for hint in hintsx %}
+            &emsp;{{hint}}<br />
+        {% endfor %}
+        <b>Across</b> <br>
+        {% for hint in hintsy %}
+            &emsp;{{hint}}<br />
+        {% endfor %}
+        
+        <br />
+        <input type="submit", value="Submit">
+    </form>
+
+    <!-- {% block content %}
+    {% endblock %} -->
+</body>
+</html>
