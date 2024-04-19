@@ -7,7 +7,7 @@
     <title>Login</title>
 </head>
 <body>
-    <a href="/cross">Home</a>
+    <a href="/">Home</a>
     <form action="{% url 'cross:login' %}" method="post">
         {% csrf_token %}
         {{form}}

@@ -75,13 +75,19 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+#ChatGPT: 
+# "Add the host port to the PostgreSQL port mapping in the db service (5432:5432) 
+# to expose the PostgreSQL port to the host machine.
+# Ensure that the Django application in the server service is configured to connect
+# to the db service using the service name (db) as the host name, rather than using
+# localhost."
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'ppuser',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT':'5432',
     },
 }

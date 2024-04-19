@@ -7,7 +7,7 @@
     <title>Register</title>
 </head>
 <body>
-    <a href="/cross">Home</a>
+    <a href="/">Home</a>
     <form action="{% url 'cross:register' %}" method="post">
         {% csrf_token %}
         {{form}}

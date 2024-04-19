@@ -123,14 +123,14 @@ def register(request):
             new_user.save()
             data = UserData(user=new_user, crosses_started=0, crosses_completed=0)
             data.save()
-            return HttpResponse("""Registered. <a href="/cross/login">Login</a> <a href="/cross">Home</a>""")
+            return HttpResponse("""Registered. <a href="/login">Login</a> <a href="/">Home</a>""")
     else:
         form = RegisterForm()
     return render(request, "cross/register.html", {"form": form})
 
 def logout_view(request):
     logout(request)
-    return HttpResponse("""Logged Out.<a href="/cross">Home</a>""")
+    return HttpResponse("""Logged Out.<a href="/">Home</a>""")
 
 # def get_puzzle(request):
 #     if request.method == "GET":
