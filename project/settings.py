@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -91,6 +91,8 @@ DATABASES = {
         'PORT':'5432',
     },
 }
+# https://www.youtube.com/watch?v=wczWm8j4v9w&ab_channel=PrettyPrinted
+DATABASES['default'] = dj_database_url.parse("postgres://postgresql:iulidQ62Na7mgVq17qNFs4UfuScDM3jQ@dpg-cohei7779t8c7380oj40-a.oregon-postgres.render.com/postgresql_8kww")
 
 
 # Password validation

@@ -5,6 +5,14 @@ import re
 import sys
 
 class CrossGen():
+    """Generate a crossword
+
+    Yes, it is incredibly mashed together
+    Yes, there's no testing
+    Yes, it's super slow and should be its own API thing so ought to pre-generate crosswords so the user doesn't have to wait
+
+    I know
+    """
     def __init__(self, size):
         print ("Loading words...")
         self.allwords:list[int, dict[dict[dict[list[str]]]]] = [0, {}]
