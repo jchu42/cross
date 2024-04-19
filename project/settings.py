@@ -92,7 +92,8 @@ DATABASES = {
     },
 }
 # https://www.youtube.com/watch?v=wczWm8j4v9w&ab_channel=PrettyPrinted
-DATABASES['default'] = dj_database_url.parse("postgres://postgresql:iulidQ62Na7mgVq17qNFs4UfuScDM3jQ@dpg-cohei7779t8c7380oj40-a/postgresql_8kww")
+DATABASES['default'] = dj_database_url.parse("postgres://postgresql:iulidQ62Na7mgVq17qNFs4UfuScDM3jQ@dpg-cohei7779t8c7380oj40-a.oregon-postgres.render.com/postgresql_8kww") # external
+# DATABASES['default'] = dj_database_url.parse("postgres://postgresql:iulidQ62Na7mgVq17qNFs4UfuScDM3jQ@dpg-cohei7779t8c7380oj40-a/postgresql_8kww") # internal
 
 
 # Password validation

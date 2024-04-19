@@ -108,7 +108,7 @@ def login_view(request):
             # https://docs.djangoproject.com/en/5.0/topics/auth/default/#authentication-in-web-requests
             login(request, user)
             # generate tokens and stuff?
-            return HttpResponse("""Logged In.<a href="/cross">Home</a>""")
+            return HttpResponse("""Logged In.<a href="/">Home</a>""")
     else:
         form = LoginForm()
     return render(request, "cross/login.html", {"form": form})
