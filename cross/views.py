@@ -77,14 +77,14 @@ def solve(request):
                         if char != puzzleResults.cleaned_data[coords]:
                             # incorrect
                             print()
-                            return HttpResponse("""Incorrect! <a href="/cross">New Game?</a>""")
+                            return HttpResponse("""Incorrect! <a href="/">New Game?</a>""")
                 print()
             data.crosses_completed += 1
             data.save()
-            return HttpResponse("""EZ. <a href="/cross">New Game?</a>""")
+            return HttpResponse("""EZ. <a href="/">New Game?</a>""")
         print (puzzleResults.errors)
-        return HttpResponse("""Gave up already? <a href="/cross">New Game?</a>""")
-    return HttpResponse("""Not Logged In! <a href="/cross/login">Login</a> <a href="/cross/register">Register</a> <a href="/cross">Home</a>""")
+        return HttpResponse("""Gave up already? <a href="/">New Game?</a>""")
+    return HttpResponse("""Not Logged In! <a href="/login">Login</a> <a href="/register">Register</a> <a href="/">Home</a>""")
 
 def user_view(request, username):
     user = User.objects.get(username=request.user)
