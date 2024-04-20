@@ -87,7 +87,7 @@ def solve(request):
     return HttpResponse("""Not Logged In! <a href="/login">Login</a> <a href="/register">Register</a> <a href="/">Home</a>""")
 
 def user_view(request, username):
-    user = User.objects.get(username=request.user)
+    user = User.objects.get(username=username)
     data = user.userdata
 
     if data is None or data.crosses_started == 0:
